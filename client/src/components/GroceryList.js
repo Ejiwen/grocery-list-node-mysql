@@ -8,7 +8,7 @@ return (
 
       props.itemsList.map((item,index) => {
         console.log(item)
-        return (<GroceryItem key={index} item={item} deleteItem={props.deleteItem} />)
+        return (<GroceryItem key={index} item={item} deleteItem={props.deleteItem} changeItem={props.changeItem} />)
       })
     }
 

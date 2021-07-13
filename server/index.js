@@ -44,4 +44,16 @@ app.delete(`/items/:id`, (request, response) => {
   });
 })
 
+app.put(`/item/:id:updatItem`, (request, response) => {
+  const { id } = request.params;
+  const { updatItem } = request.params;
+  db.changeItem(id, updatItem, (err, data) => {
+    if(err) {
+      console.log('Error');
+    } else {
+      response.json("Item removed");
+    }
+  });
+})
+
 app.listen(3000, () => console.log('app is running'));

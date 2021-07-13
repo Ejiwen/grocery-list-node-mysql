@@ -19,6 +19,7 @@ class App extends React.Component {
     };
     this.deleteItem = this.deleteItem.bind(this);
     this.getItems = this.getItems.bind(this);
+    this.changeItem = this.changeItem.bind(this);
   }
 
   getItems() {
@@ -46,9 +47,16 @@ class App extends React.Component {
   deleteItem(id) {
     axios.delete('/items/' + id);
     this.getItems();
-  // fetch('http://localhost:3000/groceries/' + id, { method: 'DELETE' })
-  //       .then(() => console.log('Delete successful'));
-  //       this.getItems();
+  }
+
+  changeItem(id, updatItem) {
+    axios.put('/item/' + id + updatItem), {
+      item: updatItem,
+    };
+    this.getItems();
+    // console.log(id);
+    // console.log("---------");
+    // console.log(updatItem);
   }
 
   render() {
@@ -56,7 +64,7 @@ class App extends React.Component {
   <div style={appStyle}>
    <GroceryHeader  />
    <GroceryForm addItem={this.addItem.bind(this)} />
-   <GroceryList itemsList={this.state.items} deleteItem={this.deleteItem} />
+   <GroceryList itemsList={this.state.items} deleteItem={this.deleteItem} changeItem={this.changeItem} />
   </div>
   )
  }

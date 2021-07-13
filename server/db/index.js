@@ -48,6 +48,16 @@ module.exports.deleteItem = (id, cb) => {
   });
 }
 
+module.exports.changeItem = (id, updatItem, cb) => {
+  module.exports.dbConnection.query(`UPDATE items SET item = '${updatItem}' WHERE id = ${id}`, (err, results) => {
+    if (err) {
+      console.log(err);
+    } else {
+      cb(null,'Item removed');
+    }
+  });
+}
+
 
 // var mysql = require('mysql');
 
