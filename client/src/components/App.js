@@ -48,12 +48,7 @@ class App extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(newItem)
-<<<<<<< HEAD
-    }).then(() => this.getItems());
-
-=======
     }).then(this.getItems());
->>>>>>> 9e5cced8670b9a5230569b16a9b51a2045d9ad3e
   }
 
   deleteItem(id) {
