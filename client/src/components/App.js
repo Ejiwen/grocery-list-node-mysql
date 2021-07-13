@@ -1,7 +1,8 @@
 import React from 'react';
-import GroceryHeader from './GroceryHeader.js'
-import GroceryForm from './GroceryForm.js'
-import GroceryList from './GroceryList.js'
+import GroceryHeader from './GroceryHeader.js';
+import GroceryForm from './GroceryForm.js';
+import GroceryList from './GroceryList.js';
+import axios from 'axios';
 
 const appStyle = {
   width: '594px',
@@ -21,17 +22,9 @@ class App extends React.Component {
   }
 
   getItems() {
-    this.setState({ loading: true }, () => {
-      fetch("http://127.0.0.1:3000/groceries")
-        .then(res => res.json())
-        .then(result =>
-          this.setState({
-            loading: false,
-            items: result
-          })
-        )
-        .catch(console.log);
-    });
+    axios.get('/getAll')
+      .then(groceryList => groceryList)
+      .then(result => this.setState({ items: result.data}));
   }
 
   componentDidMount() {
