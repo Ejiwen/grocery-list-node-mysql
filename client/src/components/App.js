@@ -22,9 +22,11 @@ class App extends React.Component {
   }
 
   getItems() {
+    var groceriesArray = [];
     axios.get('/getAll')
       .then(groceryList => groceryList)
       .then(result => this.setState({ items: result.data}));
+      // this.setState({ items: result.data.slice(1)})
   }
 
   componentDidMount() {
