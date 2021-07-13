@@ -36,6 +36,12 @@ class App extends React.Component {
 
 
   addItem(item,quantity) {
+    axios.post('/postItem', {
+      item,
+      quantity
+    });
+    this.getItems();
+    /*
     const newItem= {item, quantity};
     fetch("http://localhost:3000/groceries", {
       method: "POST",
@@ -44,6 +50,7 @@ class App extends React.Component {
       },
       body: JSON.stringify(newItem)
     }).then(this.getItems());
+    */
   }
 
   deleteItem(id) {

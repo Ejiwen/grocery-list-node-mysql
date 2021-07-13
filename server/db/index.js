@@ -28,6 +28,16 @@ module.exports.getAll = (cb) => {
   });
 }
 
+module.exports.addItem = (reqBody, cb) => {
+  module.exports.dbConnection.query(`INSERT INTO items(item, quantity) values ('${reqBody.item}', ${reqBody.quantity})`, (err, results) => {
+    if (err) {
+      console.log(err);
+    } else {
+      cb(null,'Item added');
+    }
+  });
+}
+
 
 
 // var mysql = require('mysql');
