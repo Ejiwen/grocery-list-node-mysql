@@ -38,6 +38,15 @@ module.exports.addItem = (reqBody, cb) => {
   });
 }
 
+module.exports.deleteItem = (id, cb) => {
+  module.exports.dbConnection.query(`DELETE FROM items WHERE id = ${id}`, (err, results) => {
+    if (err) {
+      console.log(err);
+    } else {
+      cb(null,'Item removed');
+    }
+  });
+}
 
 
 // var mysql = require('mysql');

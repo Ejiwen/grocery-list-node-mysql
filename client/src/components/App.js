@@ -41,22 +41,14 @@ class App extends React.Component {
       quantity
     });
     this.getItems();
-    /*
-    const newItem= {item, quantity};
-    fetch("http://localhost:3000/groceries", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newItem)
-    }).then(this.getItems());
-    */
   }
 
   deleteItem(id) {
-  fetch('http://localhost:3000/groceries/' + id, { method: 'DELETE' })
-        .then(() => console.log('Delete successful'));
-        this.getItems();
+    axios.delete('/items/' + id);
+    this.getItems();
+  // fetch('http://localhost:3000/groceries/' + id, { method: 'DELETE' })
+  //       .then(() => console.log('Delete successful'));
+  //       this.getItems();
   }
 
   render() {

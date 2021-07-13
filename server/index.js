@@ -33,4 +33,15 @@ app.post('/postItem', (request, response) => {
   });
 })
 
+app.delete(`/items/:id`, (request, response) => {
+  const { id } = request.params;
+  db.deleteItem(id, (err, data) => {
+    if(err) {
+      console.log('Error');
+    } else {
+      response.json("Item removed");
+    }
+  });
+})
+
 app.listen(3000, () => console.log('app is running'));
