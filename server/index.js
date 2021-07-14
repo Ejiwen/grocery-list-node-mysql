@@ -15,37 +15,10 @@ app.use('/',express.static('./client/dist'));
 
 app.get('/getAll', controllers.getAll);
 
-app.post('/postItem', (request, response) => {
-  db.addItem(request.body, (err, data) => {
-    if(err) {
-      console.log('Error');
-    } else {
-      response.json("Item Added");
-    }
-  });
-})
+app.post('/postItem', controllers.postItem);
 
-app.delete(`/items/:id`, (request, response) => {
-  const { id } = request.params;
-  db.deleteItem(id, (err, data) => {
-    if(err) {
-      console.log('Error');
-    } else {
-      response.json("Item removed");
-    }
-  });
-})
+app.delete(`/items/:id`, controllers.deleteItem);
 
-app.put(`/item/:id:updatItem`, (request, response) => {
-  const { id } = request.params;
-  const { updatItem } = request.params;
-  db.changeItem(id, updatItem, (err, data) => {
-    if(err) {
-      console.log('Error');
-    } else {
-      response.json("Item removed");
-    }
-  });
-})
+app.put(`/item/:id:updatItem`, controllers.changeItem)
 
 app.listen(3000, () => console.log('app is running on port 3000'));
