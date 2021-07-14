@@ -13,15 +13,7 @@ app.use('/',express.static('./client/dist'));
 
 //app.get('/getAll', controllers.getAll);
 
-app.get('/getAll', (request, response) => {
-  db.getAll((err, data) => {
-    if(err) {
-      console.log('Error');
-    } else {
-      response.json(data);
-    }
-  });
-})
+app.get('/getAll', controllers.getAll);
 
 app.post('/postItem', (request, response) => {
   db.addItem(request.body, (err, data) => {
@@ -56,4 +48,4 @@ app.put(`/item/:id:updatItem`, (request, response) => {
   });
 })
 
-app.listen(3000, () => console.log('app is running'));
+app.listen(3000, () => console.log('app is running on port 3000'));

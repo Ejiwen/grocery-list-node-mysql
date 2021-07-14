@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-module.exports.dbConnection = mysql.createConnection({
+var dbConnection = mysql.createConnection({
   host: 'localhost', // new line added
   user: 'root',
   password: '',
@@ -9,7 +9,7 @@ module.exports.dbConnection = mysql.createConnection({
 });
 
 
-module.exports.dbConnection.connect((err) => {
+dbConnection.connect((err) => {
   if (err) {
     console.log(err);
   } else {
@@ -17,6 +17,9 @@ module.exports.dbConnection.connect((err) => {
   }
 });
 
+module.exports = dbConnection;
+
+/*
 
 module.exports.getAll = (cb) => {
   module.exports.dbConnection.query('SELECT * FROM items', (err, results) => {
@@ -57,23 +60,4 @@ module.exports.changeItem = (id, updatItem, cb) => {
     }
   });
 }
-
-
-// var mysql = require('mysql');
-
-// module.exports.dbConnection = mysql.createConnection({
-//   host: 'localhost', // new line added
-//   user: 'root',
-//   password: '',
-//   database: 'grocery',
-//   insecureAuth : true
-// });
-
-
-// module.exports.dbConnection.connect();
-
-// module.exports.dbConnection.query(`INSERT INTO items (name, quantity) values ('heyyy', 5);`, function (err, rows, fields) {
-//   if (err) console.log(err);
-
-//   console.log('BRAVOOOOOOO !!!!');
-// });
+*/

@@ -9,7 +9,7 @@ var db = require('../db');
 //   { item: 'french bread', quantity: 1 },
 // ]
 
-exports.getAll = (req, res) => {
+ module.exports.getAll = (req, res) => {
   models.getAll((err, data) => {
     if(err) {
       console.log('ERROR');
@@ -19,3 +19,15 @@ exports.getAll = (req, res) => {
   });
 }
 
+
+/*
+app.get('/getAll', (request, response) => {
+  db.getAll((err, data) => {
+    if(err) {
+      console.log('Error');
+    } else {
+      response.json(data);
+    }
+  });
+})
+*/
