@@ -1,11 +1,14 @@
-var db = require('../db');
+var db = require('../db/index.js');
 
   module.exports.getAll = (callback) => {
-    db.dbConnection.query(`SELECT * FROM items`, (err, results) => {
+    console.log(db);
+
+    db.query(`SELECT * FROM items`, (err, results) => {
       if(err) {
         console.log(err);
       } else {
         callback(null, results);
       }
     })
+
   }

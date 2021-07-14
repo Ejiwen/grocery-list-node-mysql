@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 var parser = require('body-parser');
-var db = require('./db');
+var db = require('./db/index.js');
 
 var controllers = require('./controllers');
 
