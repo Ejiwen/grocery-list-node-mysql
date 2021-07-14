@@ -50,13 +50,11 @@ class App extends React.Component {
   }
 
   changeItem(id, updatItem) {
-    axios.put('/item/' + id + updatItem), {
-      item: updatItem,
-    };
+    axios.put('/item/' + id + updatItem);
     this.getItems();
-    // console.log(id);
-    // console.log("---------");
-    // console.log(updatItem);
+    console.log(id);
+    console.log("---------");
+    console.log(updatItem);
   }
 
   render() {

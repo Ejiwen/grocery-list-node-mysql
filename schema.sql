@@ -9,3 +9,17 @@
  *  a password, it'll be
  *    mysql -u root < schema.sql
 */
+
+
+DROP DATABASE IF EXISTS grocery;
+
+CREATE DATABASE grocery;
+
+USE grocery;
+
+CREATE TABLE items (
+  id MEDIUMINT NOT NULL AUTO_INCREMENT,
+  item VARCHAR(100),
+  quantity MEDIUMINT,
+  PRIMARY KEY(id)
+);
