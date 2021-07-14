@@ -8,10 +8,10 @@ var controllers = require('./controllers');
 
 //const dotenv = require('dotenv');
 //dotenv.config();
+
 app.use(parser.json());
 app.use('/',express.static('./client/dist'));
 
-//app.get('/getAll', controllers.getAll);
 
 app.get('/getAll', controllers.getAll);
 

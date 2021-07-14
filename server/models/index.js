@@ -32,11 +32,6 @@ var db = require('../db/index.js');
     },
 
     changeItem: function(id, updatItem, callback) {
-
-    //console.log(id);
-    //console.log('-------------');
-    //console.log(updatItem);
-
       db.query(`UPDATE items SET item = '${updatItem}' WHERE id = ${id}`, (err, results) => {
         if (err) {
           console.log(err);
@@ -45,18 +40,4 @@ var db = require('../db/index.js');
         }
       });
     }
-
-
   }
-
-/*
- module.exports.changeItem = (id, updatItem, cb) => {
-  module.exports.dbConnection.query(`UPDATE items SET item = '${updatItem}' WHERE id = ${id}`, (err, results) => {
-    if (err) {
-      console.log(err);
-    } else {
-      cb(null,'Item removed');
-    }
-  });
-}
-*/

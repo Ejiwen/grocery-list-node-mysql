@@ -1,3 +1,5 @@
+/* The Projcet don't use the express router */
+
 /*
 
 var controllers = require('./controllers');
